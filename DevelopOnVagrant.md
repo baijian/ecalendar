@@ -1,7 +1,8 @@
 
 ## Develop 
 
-Before develop, you need a [Python](http://python.org/) environment, and please install [Vagrant](http://www.vagrantup.com/).
+Before develop, you need a [Python](http://python.org/) environment(remember install python-dev),
+and please install [Vagrant](http://www.vagrantup.com/).
 
 Please follow [Google Python Style Guide](http://google-styleguid.googlecode.com/svn/trunk/pyguide.html).
 
@@ -49,14 +50,15 @@ $ .bootstrap/ve vagrant ssh
 
 #### Init the database
 ```
+vagrant@precise64:~$ cd /vagrant
 vagrant@precise64:/vagrant$ mysql -u<root> -p<password>
 vagrant@precise64:/vagrant$ create database huodongrili
-vagrant@precise64:/vagrant$ source db.sql 
+vagrant@precise64:/vagrant$ source db.sql  | python src/ecalendar/manage.py syncdb
 ```
 
 #### Start Web Service
 ```
-vagrant@precise64:/vagrant$ python manager.py runserver 0.0.0.0:8000
+vagrant@precise64:/vagrant$ python src/ecalendar/manager.py runserver 0.0.0.0:8000
 
 open chrome of your system [http://192.168.222.6:8000/admin/](http://192.168.222.6:8000)
 
