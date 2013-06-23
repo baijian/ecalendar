@@ -41,3 +41,9 @@ nosetests.xml
 .pydevproject
 
 .DS_Store
+
+# virutal env
+script/bootstrap.py
+.bootstrap
+.virtualenv
+.vagrant
